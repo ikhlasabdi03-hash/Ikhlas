@@ -1,0 +1,610 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import TypingText from "./components/TypingText";
+import FadeUp from "./components/FadeUp";
+
+import {
+  FaInstagram,
+  FaSpotify,
+  FaGoodreads,
+  FaTiktok,
+  FaDiscord,
+} from "react-icons/fa";
+
+import { SiLetterboxd } from "react-icons/si";
+
+const socialLinks = [
+  {
+    name: "Instagram",
+    icon: <FaInstagram />,
+    username: "@abdiikhlas___",
+    url: "https://www.instagram.com/abdiikhlas___?igsh=MTVqamdpMGsyM2gyag%3D%3D&utm_source=qr",
+  },
+  {
+    name: "Spotify",
+    icon: <FaSpotify />,
+    username: "@Ikhlasabdi",
+    url: "https://open.spotify.com/user/9oe53z77xe37mqaex1xt89uev?si=6e380763bee347e5",
+  },
+  {
+    name: "Goodreads",
+    icon: <FaGoodreads />,
+    username: "@elabe",
+    url: "https://www.goodreads.com/user/show/94772283-abe",
+  },
+  {
+    name: "Letterboxd",
+    icon: <SiLetterboxd />,
+    username: "@elabe",
+    url: "https://boxd.it/9l3uR",
+  },
+];
+const elsewhereLinks = [
+  ...socialLinks,
+  {
+    name: "TikTok",
+    icon: <FaTiktok />,
+    username: "@axcvu",
+    url: "https://www.tiktok.com/@axcvu?_r=1&_t=ZS-98XpDe4Nis8",
+  },
+   {
+    name: "Discord",
+    icon: <FaDiscord />,
+    username: "@imelabe",
+    url: "https://discord.com/users/956750391238881291",
+  },
+];
+
+const films = [
+  {
+    title: "The Odyssey",
+    director: "Christopher Nolan",
+    poster: "/films/odyssey.jpg",
+    rating: "★★★★★",
+  },
+  {
+    title: "Before Sunset",
+    director: "Richard Linklater",
+    poster: "/films/before sunset.webp",
+    rating: "★★★★★",
+  },
+  {
+    title: "Whiplash",
+    director: "Damien Chazelle",
+    poster: "/films/whipash2.jpg",
+    rating: "★★★★★",
+  },
+  {
+    title: "Monster",
+    director: "Hirokazu Kore-eda",
+    poster: "/films/monster.webp",
+    rating: "★★★★★",
+  },
+];
+
+const books = [
+  {
+    title: "The Song of Achilles",
+    author: "Madeline Miller",
+    cover: "/books/The_Song_of_Achilles_cov.jpg",
+    status: "Currently Reading",
+  },
+  {
+    title: "Mythology",
+    author: "Edith Hamilton",
+    cover: "/books/mythology2.jpg",
+    status: "Up Next"
+  },
+  {
+    title: "Circe",
+    author: "Madeline Miller",
+    cover: "/books/circe.jpg",
+     status: "Wishlist",
+  },
+];
+
+export default function Home() {
+  const [active, setActive] = useState("");
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <main className="relative min-h-screen overflow-hidden bg-zinc-950 text-white">
+
+  <div className="stars" />
+
+  <div className="relative z-10">
+
+<nav className="fixed top-0 z-50 w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur">
+  <div className="mx-auto flex max-w-6xl items-center justify-between px-8 py-5">
+
+    <h1 className="font-bold">
+      Ιχλας
+    </h1>
+
+    <div className="flex items-center text-zinc-400">
+
+<a
+  href="#profile"
+  onClick={() => setActive("profile")}
+  className={`px-4 transition ${
+    active === "profile" ? "text-white" : "text-zinc-400"
+  }`}
+>
+  Profile
+</a>
+
+<span className="h-5 border-l border-zinc-700" />
+
+<a
+  href="#links"
+  onClick={() => setActive("links")}
+  className={`px-4 transition ${
+    active === "links" ? "text-white" : "text-zinc-400"
+  }`}
+>
+  Social Media
+</a>
+
+<span className="h-5 border-l border-zinc-700" />
+
+<a
+  href="#films"
+  onClick={() => setActive("films")}
+  className={`px-4 transition ${
+    active === "films" ? "text-white" : "text-zinc-400"
+  }`}
+>
+  Films
+</a>
+
+<span className="h-5 border-l border-zinc-700" />
+
+<a
+  href="#bookshelf"
+  onClick={() => setActive("bookshelf")}
+  className={`px-4 transition ${
+    active === "bookshelf" ? "text-white" : "text-zinc-400"
+  }`}
+>
+  Bookshelf
+</a>
+
+<span className="h-5 border-l border-zinc-700" />
+
+<a
+  href="#greek"
+  onClick={() => setActive("greek")}
+  className={`px-4 transition ${
+    active === "greek" ? "text-white" : "text-zinc-400"
+  }`}
+>
+  Greek
+</a>
+
+</div>
+
+  </div>
+</nav>
+      <section className="mx-auto flex min-h-screen max-w-6xl items-center justify-between px-8">
+
+ <div className="max-w-xl space-y-6">
+
+    <p className="text-sm uppercase tracking-[0.3em] text-zinc-500">
+      Just a little corner of mine.
+    </p>
+
+   <h1 className="mt-6 text-8xl font-extrabold tracking-tight transition-all duration-500 hover:-translate-y-1 hover:scale-105 hover:tracking-wider">
+      Ιχλας
+    </h1>
+
+    <p className="mt-5 text-2xl text-zinc-300">
+      Medical Student
+    </p>
+
+
+<TypingText />
+
+    <p className="mt-4 max-w-xl text-zinc-500 leading-8">
+      Movies • Reading • Music • Greek Mythology
+    </p>
+
+<div className="mt-10 grid grid-cols-2 gap-8">
+
+</div>
+
+<div className="mt-1 space-y-3 text-zinc-400">
+
+  <p>
+    📚 Currently Reading:
+    <span className="text-white"> The Song of Achilles</span>
+  </p>
+
+  <p>
+    🎵 Currently Listening:
+    <span className="text-white"> Disillusioned - Daniel Caesar</span>
+  </p>
+
+</div>
+
+<div className="mt-10 flex flex-wrap gap-3 text-sm">
+
+  <span className="rounded-full border border-zinc-700 px-4 py-2">
+    Medical Student
+  </span>
+
+  <span className="rounded-full border border-zinc-700 px-4 py-2">
+    23
+  </span>
+
+  <span className="rounded-full border border-zinc-700 px-4 py-2">
+    Pisces
+  </span>
+
+  <span className="rounded-full border border-zinc-700 px-4 py-2">
+    INFJ
+  </span>
+
+  <span className="rounded-full border border-zinc-700 px-4 py-2">
+    Indonesia
+  </span>
+
+</div>
+
+  </div>
+
+  <div className="space-y-5">
+
+  {socialLinks.map((social) => (
+   <a
+  key={social.name}
+  href={social.url}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group flex items-center justify-between gap-10 border-b border-zinc-800 pb-3 text-zinc-400 transition-all duration-300 hover:border-white hover:text-white"
+>
+     <span className="flex items-center gap-3">
+  <span className="text-2xl">
+    {social.icon}
+  </span>
+
+  <span>{social.name}</span>
+</span>
+
+      <span className="transition-transform duration-300 group-hover:translate-x-1">
+        ↗
+      </span>
+    </a>
+  ))}
+
+  <div className="pt-6">
+   <a
+  href="#links"
+  className="inline-block cursor-pointer rounded-full border border-zinc-700 px-8 py-4 transition-all duration-300 hover:border-white hover:bg-white hover:text-black"
+>
+  Explore My World
+</a>
+  <div className="pt-8 text-center">
+  <a
+    href="#links"
+    className="inline-block animate-bounce text-5xl text-zinc-500 transition duration-300 hover:text-white"
+  >
+    ↓
+  </a>
+</div>
+</div>
+</div>
+
+</section>
+
+<FadeUp>
+<section
+  id="profile"
+  className="mx-auto max-w-5xl px-8 py-32"
+>
+<motion.h2
+  className="mb-12 text-center text-4xl font-bold"
+  animate={{ y: [0, -8, 0] }}
+  transition={{
+    duration: 3,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+>
+  Profile
+</motion.h2>
+
+  <div className="grid gap-10 md:grid-cols-2">
+
+    <div>
+      <p className="text-zinc-500">Full Name</p>
+      <p className="mt-2 text-2xl font-semibold">
+        Ikhlas Abdi Bangsa El Kamal
+      </p>
+    </div>
+
+    <div>
+      <p className="text-zinc-500">Education</p>
+      <p className="mt-2 text-2xl font-semibold">
+        Medical Student
+      </p>
+
+      <p className="text-zinc-400">
+        Universitas Jenderal Achmad Yani
+      </p>
+    </div>
+
+    <div>
+      <p className="text-zinc-500">Interests</p>
+
+      <ul className="mt-2 space-y-2 text-zinc-300">
+        <li>Greek Mythology</li>
+        <li>Books</li>
+        <li>Movies</li>
+        <li>Music</li>
+      </ul>
+    </div>
+
+    <div>
+      <p className="text-zinc-500">Currently</p>
+
+      <ul className="mt-2 space-y-2 text-zinc-300">
+        <li>📚 The Song of Achilles</li>
+        <li>🎵 Disillusioned</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+</FadeUp>
+
+<FadeUp>
+<section
+  id="links"
+  className="mx-auto max-w-5xl px-8 py-32"
+>
+
+<motion.h2
+  className="mb-12 text-center text-4xl font-bold"
+  animate={{ y: [0, -8, 0] }}
+  transition={{
+    duration: 3,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+>
+  Social Media
+</motion.h2>
+
+<div className="grid gap-6 md:grid-cols-2">
+  {elsewhereLinks.map((social) => (
+    <a
+      key={social.name}
+      href={social.url}
+      className="rounded-2xl border border-zinc-800 p-6 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:border-white"
+    >
+      <h3 className="flex items-center gap-3 text-2xl">
+        {social.icon}
+        {social.name}
+      </h3>
+
+      <p className="mt-2 text-zinc-400">
+        {social.username}
+      </p>
+    </a>
+  ))}
+</div>
+
+</section>
+</FadeUp>
+
+<FadeUp>
+<section
+  id="films"
+  className="mx-auto max-w-6xl px-8 py-32"
+>
+
+<motion.h2
+  className="text-center text-4xl font-bold"
+  animate={{ y: [0, -8, 0] }}
+  transition={{ duration: 3, repeat: Infinity, ease:"easeInOut" }}
+>
+  Top 4 Movies
+</motion.h2>
+
+  <div className="mt-16 flex gap-6 overflow-x-auto pb-4">
+
+{films.map((film) => (
+
+<div key={film.title} className="min-w-[200px]">
+
+  <div className="relative h-[300px] w-[200px] overflow-hidden rounded-xl">
+
+    <Image
+      src={film.poster}
+      alt={film.title}
+      fill
+      className="object-cover transition-all duration-500 hover:scale-105 hover:-rotate-2"
+    />
+
+  </div>
+
+
+  <h3 className="mt-4 font-semibold">
+    {film.title}
+  </h3>
+
+
+  <p className="text-sm text-zinc-400">
+    {film.director}
+  </p>
+
+
+  <p className="mt-2 text-xs tracking-widest text-zinc-500">
+    {film.rating}
+  </p>
+
+
+</div>
+
+))}
+
+</div>
+
+<div className="mt-12 text-center">
+  <a
+    href="https://boxd.it/9l3uR"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="rounded-full border border-zinc-700 px-6 py-3 transition hover:border-white hover:bg-white hover:text-black"
+  >
+    View my Letterboxd ↗
+  </a>
+</div>
+
+</section>
+</FadeUp>
+
+<FadeUp>
+<section
+  id="bookshelf"
+  className="mx-auto max-w-6xl px-8 py-32"
+>
+  <motion.h2
+  className="text-center text-4xl font-bold"
+  animate={{ y: [0, -8, 0] }}
+  transition={{ duration: 3, repeat: Infinity, ease:"easeInOut" }}
+>
+  Bookshelf
+</motion.h2>
+
+  <div className="mt-16 flex gap-6 overflow-x-auto pb-4">
+  {books.map((book) => (
+    <div key={book.title} className="min-w-[180px]">
+      <div className="relative h-[270px] w-[180px] overflow-hidden rounded-xl">
+  <Image
+    src={book.cover}
+    alt={book.title}
+    fill
+  className="object-cover transition-all duration-500 hover:scale-105 hover:-rotate-2"
+  />
+</div>
+
+      <h3 className="mt-4 font-semibold">
+        {book.title}
+      </h3>
+
+      <p className="text-sm text-zinc-400">
+        {book.author}
+      </p>
+
+      <p className="mt-2 text-xs uppercase tracking-widest text-zinc-500">
+  {book.status}
+</p>
+
+    </div>
+  ))}
+
+</div>
+
+<div className="mt-12 text-center">
+    <a
+      href="https://www.goodreads.com/user/show/94772283-abe"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="rounded-full border border-zinc-700 px-6 py-3 transition hover:border-white hover:bg-white hover:text-black"
+    >
+      View my Goodreads ↗
+    </a>
+  </div>
+
+  </section>
+  </FadeUp>
+
+<FadeUp>
+<section
+  id="greek"
+  className="mx-auto max-w-6xl px-8 py-32"
+>
+  <motion.h2
+  className="text-center text-4xl font-bold"
+  animate={{ y: [0, -8, 0] }}
+  transition={{ duration: 3, repeat: Infinity, ease:"easeInOut" }}
+>
+  Greek Corner
+</motion.h2>
+
+<div className="mt-16 grid gap-6 md:grid-cols-3">
+
+  <div className="rounded-2xl border border-zinc-800 p-6">
+    <h3 className="text-2xl">
+      ⚔ Achilles
+    </h3>
+
+    <p className="mt-3 text-zinc-400">
+      The greatest warrior of the Greeks.
+      A story about glory, fate, and mortality.
+    </p>
+  </div>
+
+
+  <div className="rounded-2xl border border-zinc-800 p-6">
+    <h3 className="text-2xl">
+      🛡 Hector
+    </h3>
+
+    <p className="mt-3 text-zinc-400">
+      The heart of Troy.
+      A prince, warrior, and protector.
+    </p>
+  </div>
+
+
+  <div className="rounded-2xl border border-zinc-800 p-6">
+    <h3 className="text-2xl">
+      🦉 Athena
+    </h3>
+
+    <p className="mt-3 text-zinc-400">
+      Wisdom, strategy, and courage.
+    </p>
+  </div>
+
+</div>
+
+</section>
+</FadeUp>
+
+<footer className="border-t border-zinc-800 py-12 text-center text-zinc-500">
+  <p>A little corner of mine.</p>
+
+  <p className="mt-2 text-sm">
+    © 2026 Ikhlas Abdi Bangsa El Kamal
+  </p>
+</footer>
+
+</div>
+    </main>
+  );
+}
