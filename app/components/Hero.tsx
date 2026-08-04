@@ -51,13 +51,12 @@ export default function Hero() {
        <div className="max-w-xl space-y-6 text-center md:text-left">
       
           <p className="text-sm uppercase tracking-[0.3em] text-zinc-500">
-            Just a little corner of mine ✨.
+            Just a little corner of mine.
           </p>
       
-         <div className="relative inline-block">
-  <div className="absolute inset-0 -z-10 rounded-full bg-cyan-400/20 blur-[90px]" />
+         <div className="absolute inset-0 scale-150 rounded-full bg-sky-400/25 blur-[90px]" />
 
-  <h1 className="mt-6 text-5xl sm:text-6xl md:text-8xl font-extrabold text-red-500 tracking-tight transition-all duration-500 hover:-translate-y-1 hover:scale-105 hover:tracking-wider">
+  <h1 className="mt-6 text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tight transition-all duration-500 hover:-translate-y-1 hover:scale-105 hover:tracking-wider">
     Ιχλας
   </h1>
 </div>
@@ -117,14 +116,6 @@ export default function Hero() {
       
         </div>
       
-<div className="pt-8 text-center md:text-left">
-  <a
-    href="#profile"
-    className="inline-block rounded-full border border-zinc-700 px-8 py-4 transition-all duration-300 hover:border-white hover:bg-white hover:text-black"
-  >
-    Explore My World
-  </a>
-</div>
 
         <div className="hidden md:block space-y-5">
       
