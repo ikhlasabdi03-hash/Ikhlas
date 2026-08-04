@@ -54,7 +54,8 @@ export default function Hero() {
             Just a little corner of mine.
           </p>
       
-         <div className="absolute inset-0 scale-150 rounded-full bg-sky-400/25 blur-[90px]" />
+<div className="relative inline-block overflow-visible">
+  <div className="absolute inset-0 scale-150 rounded-full bg-sky-400/25 blur-[90px]" />
 
   <h1 className="mt-6 text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tight transition-all duration-500 hover:-translate-y-1 hover:scale-105 hover:tracking-wider">
     Ιχλας
@@ -71,10 +72,7 @@ export default function Hero() {
           <p className="mt-4 max-w-xl text-zinc-500 leading-8">
             Movies • Reading • Music • Greek Mythology
           </p>
-      
-      <div className="mt-10 grid grid-cols-2 gap-8">
-      
-      </div>
+  
       
       <div className="mt-1 space-y-3 text-center md:text-left text-zinc-400">
       
