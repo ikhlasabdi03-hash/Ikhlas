@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { HiOutlineArrowLongDown } from "react-icons/hi2";
 import FadeUp from "./FadeUp";
+
 const books = [
   {
     title: "The Song of Achilles",
@@ -24,71 +25,76 @@ const books = [
     status: "Wishlist",
   },
 ];
+
 export default function Bookshelf() {
   return (
-  <FadeUp>
-<section
-  id="bookshelf"
-  className="mx-auto max-w-6xl px-8 py-32"
->
-  <motion.h2
-  className="text-center text-4xl font-bold"
-  animate={{ y: [0, -8, 0] }}
-  transition={{ duration: 3, repeat: Infinity, ease:"easeInOut" }}
->
-  Bookshelf
-</motion.h2>
+    <FadeUp>
+      <section
+        id="bookshelf"
+        className="mx-auto max-w-6xl px-8 py-32"
+      >
+        <motion.h2
+          className="text-center text-4xl font-bold"
+          animate={{ y: [0, -8, 0] }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          Bookshelf
+        </motion.h2>
 
-  <div className="mt-16 flex gap-6 overflow-x-auto pb-4">
-  {books.map((book) => (
-    <div key={book.title} className="min-w-[180px]">
-      <div className="relative h-[270px] w-[180px] overflow-hidden rounded-xl">
-  <Image
-    src={book.cover}
-    alt={book.title}
-    fill
-  className="object-cover transition-all duration-500 hover:scale-105 hover:-rotate-2"
-  />
-</div>
+        <div className="mt-16 flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-4">
+          {books.map((book) => (
+            <div
+              key={book.title}
+              className="min-w-[180px] shrink-0 snap-start"
+            >
+              <div className="relative h-[270px] w-[180px] overflow-hidden rounded-xl">
+                <Image
+                  src={book.cover}
+                  alt={book.title}
+                  fill
+                  className="object-cover transition-all duration-500 hover:scale-105 hover:-rotate-2"
+                />
+              </div>
 
-      <h3 className="mt-4 font-semibold">
-        {book.title}
-      </h3>
+              <h3 className="mt-4 font-semibold">
+                {book.title}
+              </h3>
 
-      <p className="text-sm text-zinc-400">
-        {book.author}
-      </p>
+              <p className="text-sm text-zinc-400">
+                {book.author}
+              </p>
 
-      <p className="mt-2 text-xs uppercase tracking-widest text-zinc-500">
-  {book.status}
-</p>
+              <p className="mt-2 text-xs uppercase tracking-widest text-zinc-500">
+                {book.status}
+              </p>
+            </div>
+          ))}
+        </div>
 
-    </div>
-  ))}
+        <div className="mt-12 text-center">
+          <a
+            href="https://www.goodreads.com/user/show/94772283-abe"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-zinc-700 px-6 py-3 transition hover:border-white hover:bg-white hover:text-black"
+          >
+            View my Goodreads ↗
+          </a>
+        </div>
+      </section>
 
-</div>
-
-<div className="mt-12 text-center">
-    <a
-      href="https://www.goodreads.com/user/show/94772283-abe"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="rounded-full border border-zinc-700 px-6 py-3 transition hover:border-white hover:bg-white hover:text-black"
-    >
-      View my Goodreads ↗
-    </a>
-  </div>
-  </section>
-
-  <div className="-mt-12 pb-10 flex justify-center">
-    <a
-      href="#greek"
-      className="animate-bounce text-5xl text-zinc-500 transition hover:text-white"
-    >
-      <HiOutlineArrowLongDown />
-    </a>
-  </div>
-
-</FadeUp>
+      <div className="-mt-12 flex justify-center pb-10">
+        <a
+          href="#greek"
+          className="animate-bounce text-5xl text-zinc-500 transition hover:text-white"
+        >
+          <HiOutlineArrowLongDown />
+        </a>
+      </div>
+    </FadeUp>
   );
 }
