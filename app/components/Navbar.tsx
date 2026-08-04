@@ -169,12 +169,13 @@ export default function Navbar({ active, setActive }: NavbarProps) {
 <AnimatePresence>
   {open && (
     <motion.div
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      className="fixed top-[72px] left-0 w-full bg-zinc-950 border-b border-zinc-800 md:hidden z-40"
+      initial={{ opacity: 0, y: -10, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: -10, scale: 0.95 }}
+      transition={{ duration: 0.2 }}
+      className="fixed right-4 top-[72px] z-40 w-56 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950/95 shadow-2xl backdrop-blur-md md:hidden"
     >
-      <div className="flex flex-col">
+      <div className="flex flex-col py-2">
 
         {[
           ["Home", "home"],
@@ -182,7 +183,7 @@ export default function Navbar({ active, setActive }: NavbarProps) {
           ["Social Media", "links"],
           ["Films", "films"],
           ["Bookshelf", "bookshelf"],
-          ["Greek", "greek"],
+          ["Greek Corner", "greek"],
         ].map(([label, id]) => (
           <a
             key={id}
@@ -191,7 +192,11 @@ export default function Navbar({ active, setActive }: NavbarProps) {
               setActive(id);
               setOpen(false);
             }}
-            className="border-b border-zinc-800 px-6 py-5 text-zinc-300 hover:bg-zinc-900"
+            className={`px-5 py-3 text-sm transition ${
+              active === id
+                ? "bg-zinc-800 text-white"
+                : "text-zinc-400 hover:bg-zinc-900 hover:text-white"
+            }`}
           >
             {label}
           </a>
