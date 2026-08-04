@@ -52,7 +52,7 @@ export default function Social() {
 <FadeUp>
 <section
   id="links"
-  className="mx-auto max-w-5xl px-8 py-32"
+  className="mx-auto w-full max-w-5xl px-6 py-32 md:px-8"
 >
 
 <motion.h2
@@ -68,22 +68,24 @@ export default function Social() {
 </motion.h2>
 
 <div className="grid gap-6 md:grid-cols-2">
-  {elsewhereLinks.map((social) => (
-    <a
-      key={social.name}
-      href={social.url}
-      className="rounded-2xl border border-zinc-800 p-6 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:border-white"
-    >
-      <h3 className="flex items-center gap-3 text-2xl">
-        {social.icon}
-        {social.name}
-      </h3>
+{elsewhereLinks.map((social) => (
+  <a
+    key={social.name}
+    href={social.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="rounded-2xl border border-zinc-800 p-6 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:border-white"
+  >
+    <h3 className="flex items-center gap-3 text-2xl">
+      {social.icon}
+      {social.name}
+    </h3>
 
-      <p className="mt-2 text-zinc-400">
-        {social.username}
-      </p>
-    </a>
-  ))}
+    <p className="mt-2 text-zinc-400">
+      {social.username}
+    </p>
+  </a>
+))}
 </div>
 
 </section>
