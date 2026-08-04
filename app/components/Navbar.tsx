@@ -9,203 +9,120 @@ type NavbarProps = {
   setActive: (value: string) => void;
 };
 
-export default function Navbar({ active, setActive }: NavbarProps) {
+const navItems = [
+  ["Home", "home"],
+  ["Profile", "profile"],
+  ["Social Media", "links"],
+  ["Films", "films"],
+  ["Bookshelf", "bookshelf"],
+  ["Greek Corner", "greek"],
+];
 
+export default function Navbar({ active, setActive }: NavbarProps) {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-<nav className="fixed top-0 z-50 w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur">
-  <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-8 sm:py-5">
+      <nav className="fixed top-0 z-50 w-full border-b border-zinc-800/50 bg-zinc-950/50 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-8 sm:py-5">
 
-<h1>
-  <a
-    href="#home"
-    onClick={() => setActive("home")}
-    className="font-bold transition hover:text-white"
-  >
-    Ιχλας
-  </a>
-</h1>
+          {/* Logo */}
+          <h1>
+            <a
+              href="#home"
+              onClick={() => {
+                setActive("home");
+                setOpen(false);
+              }}
+              className="font-bold transition hover:text-white"
+            >
+              Ιχλας
+            </a>
+          </h1>
 
-<button
-  onClick={() => setOpen(!open)}
-  className="md:hidden text-3xl text-zinc-300"
->
-  {open ? <HiOutlineX /> : <HiOutlineMenu />}
-</button>
+          {/* Mobile section indicator */}
+          <div className="ml-auto mr-4 text-sm text-zinc-400 md:hidden">
+            {active === "home" && "Home"}
+            {active === "profile" && "Profile"}
+            {active === "links" && "Social Media"}
+            {active === "films" && "Films"}
+            {active === "bookshelf" && "Bookshelf"}
+            {active === "greek" && "Greek Corner"}
+          </div>
 
-    <div className="hidden md:flex items-center text-zinc-400">
-
-<a
-  href="#home"
-  onClick={() => setActive("home")}
-  className={`relative px-4 py-2 transition ${
-    active === "home"
-      ? "text-white"
-      : "text-zinc-400 hover:text-white"
-  }`}
->
-  Home
-
-  {active === "home" && (
-    <motion.span
-      layoutId="navbar-indicator"
-      className="absolute left-4 right-4 -bottom-1 h-[2px] rounded-full bg-white"
-    />
-  )}
-</a>
-
-<span className="h-5 border-l border-zinc-700" />
-
-<a
-  href="#profile"
-  onClick={() => setActive("profile")}
-  className={`relative px-4 py-2 transition ${
-    active === "profile"
-      ? "text-white"
-      : "text-zinc-400 hover:text-white"
-  }`}
->
-  Profile
-
-  {active === "profile" && (
-    <motion.span
-      layoutId="navbar-indicator"
-      className="absolute left-4 right-4 -bottom-1 h-[2px] rounded-full bg-white"
-    />
-  )}
-</a>
-
-<span className="h-5 border-l border-zinc-700" />
-
-<a
-  href="#links"
-  onClick={() => setActive("links")}
-  className={`relative px-4 py-2 transition ${
-    active === "links"
-      ? "text-white"
-      : "text-zinc-400 hover:text-white"
-  }`}
->
-  Social Media
-
-  {active === "links" && (
-    <motion.span
-      layoutId="navbar-indicator"
-      className="absolute left-4 right-4 -bottom-1 h-[2px] rounded-full bg-white"
-    />
-  )}
-</a>
-
-<span className="h-5 border-l border-zinc-700" />
-
-<a
-  href="#films"
-  onClick={() => setActive("films")}
-  className={`relative px-4 py-2 transition ${
-    active === "films"
-      ? "text-white"
-      : "text-zinc-400 hover:text-white"
-  }`}
->
-  Films
-
-  {active === "films" && (
-    <motion.span
-      layoutId="navbar-indicator"
-      className="absolute left-4 right-4 -bottom-1 h-[2px] rounded-full bg-white"
-    />
-  )}
-</a>
-
-<span className="h-5 border-l border-zinc-700" />
-
-<a
-  href="#bookshelf"
-  onClick={() => setActive("bookshelf")}
-  className={`relative px-4 py-2 transition ${
-    active === "bookshelf"
-      ? "text-white"
-      : "text-zinc-400 hover:text-white"
-  }`}
->
-  Bookshelf
-
-  {active === "bookshelf" && (
-    <motion.span
-      layoutId="navbar-indicator"
-      className="absolute left-4 right-4 -bottom-1 h-[2px] rounded-full bg-white"
-    />
-  )}
-</a>
-
-<span className="h-5 border-l border-zinc-700" />
-
-<a
-  href="#greek"
-  onClick={() => setActive("greek")}
-  className={`relative px-4 py-2 transition ${
-    active === "greek"
-      ? "text-white"
-      : "text-zinc-400 hover:text-white"
-  }`}
->
-  Greek
-
-  {active === "greek" && (
-    <motion.span
-      layoutId="navbar-indicator"
-      className="absolute left-4 right-4 -bottom-1 h-[2px] rounded-full bg-white"
-    />
-  )}
-</a>
-
-</div>
-
-  </div>
-</nav>
-
-<AnimatePresence>
-  {open && (
-    <motion.div
-      initial={{ opacity: 0, y: -10, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: -10, scale: 0.95 }}
-      transition={{ duration: 0.2 }}
-      className="fixed right-4 top-[72px] z-40 w-56 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950/95 shadow-2xl backdrop-blur-md md:hidden"
-    >
-      <div className="flex flex-col py-2">
-
-        {[
-          ["Home", "home"],
-          ["Profile", "profile"],
-          ["Social Media", "links"],
-          ["Films", "films"],
-          ["Bookshelf", "bookshelf"],
-          ["Greek Corner", "greek"],
-        ].map(([label, id]) => (
-          <a
-            key={id}
-            href={`#${id}`}
-            onClick={() => {
-              setActive(id);
-              setOpen(false);
-            }}
-            className={`px-5 py-3 text-sm transition ${
-              active === id
-                ? "bg-zinc-800 text-white"
-                : "text-zinc-400 hover:bg-zinc-900 hover:text-white"
-            }`}
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="text-3xl text-zinc-300 transition hover:text-white md:hidden"
+            aria-label="Toggle menu"
           >
-            {label}
-          </a>
-        ))}
+            {open ? <HiOutlineX /> : <HiOutlineMenu />}
+          </button>
 
-      </div>
-    </motion.div>
-  )}
-</AnimatePresence>
-</> 
+          {/* Desktop navigation */}
+          <div className="hidden items-center text-zinc-400 md:flex">
+            {navItems.map(([label, id], index) => (
+              <div key={id} className="flex items-center">
+                {index > 0 && (
+                  <span className="h-5 border-l border-zinc-700" />
+                )}
+
+                <a
+                  href={`#${id}`}
+                  onClick={() => setActive(id)}
+                  className={`relative px-4 py-2 transition ${
+                    active === id
+                      ? "text-white"
+                      : "text-zinc-400 hover:text-white"
+                  }`}
+                >
+                  {label === "Greek Corner" ? "Greek" : label}
+
+                  {active === id && (
+                    <motion.span
+                      layoutId="navbar-indicator"
+                      className="absolute bottom-[-4px] left-4 right-4 h-[2px] rounded-full bg-white"
+                    />
+                  )}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile floating dropdown */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="fixed right-4 top-[72px] z-40 w-56 overflow-hidden rounded-xl border border-zinc-800/50 bg-zinc-950/70 shadow-2xl backdrop-blur-xl md:hidden"
+          >
+            <div className="flex flex-col py-2">
+              {navItems.map(([label, id]) => (
+                <a
+                  key={id}
+                  href={`#${id}`}
+                  onClick={() => {
+                    setActive(id);
+                    setOpen(false);
+                  }}
+                  className={`px-5 py-3 text-sm transition ${
+                    active === id
+                      ? "bg-zinc-800/70 text-white"
+                      : "text-zinc-400 hover:bg-zinc-900/50 hover:text-white"
+                  }`}
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
