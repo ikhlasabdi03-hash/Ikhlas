@@ -10,7 +10,7 @@ type NavbarProps = {
 export default function Navbar({ active, setActive }: NavbarProps) {
   return (
 <nav className="fixed top-0 z-50 w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur">
-  <div className="mx-auto flex max-w-6xl items-center justify-between px-8 py-5">
+  <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-8 sm:py-5">
 
 <h1>
   <a
@@ -22,7 +22,7 @@ export default function Navbar({ active, setActive }: NavbarProps) {
   </a>
 </h1>
 
-    <div className="flex items-center text-zinc-400">
+    <div className="flex items-center overflow-x-auto text-zinc-400">
 
 <a
   href="#home"
