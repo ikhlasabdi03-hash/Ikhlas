@@ -45,19 +45,19 @@ export default function Hero() {
     <>
        <section
   id="home"
-  className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center gap-12 px-6 py-24 md:flex-row md:items-center md:justify-between md:px-8"
+  className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center gap-12 px-6 pt-36 pb-24 md:flex-row md:items-center md:justify-between md:px-8 md:pt-24"
 >
       
        <div className="max-w-xl space-y-6 text-center md:text-left">
       
           <p className="text-sm uppercase tracking-[0.3em] text-zinc-500">
-            Just a little corner of mine.
+            Just a little corner of mine ✨.
           </p>
       
          <div className="relative inline-block">
-  <div className="absolute inset-0 -z-10 rounded-full bg-sky-400/10 blur-3xl" />
+  <div className="absolute inset-0 -z-10 rounded-full bg-cyan-400/20 blur-[90px]" />
 
-  <h1 className="mt-6 text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tight transition-all duration-500 hover:-translate-y-1 hover:scale-105 hover:tracking-wider">
+  <h1 className="mt-6 text-5xl sm:text-6xl md:text-8xl font-extrabold text-red-500 tracking-tight transition-all duration-500 hover:-translate-y-1 hover:scale-105 hover:tracking-wider">
     Ιχλας
   </h1>
 </div>
