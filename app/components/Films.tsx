@@ -67,14 +67,14 @@ export default function Films() {
             return (
               <div
                 key={film.title}
-                className="group relative h-[225px] w-[150px] cursor-pointer overflow-hidden rounded-xl md:h-[300px] md:w-[200px]"
+                className="min-w-[200px] snap-start"
               >
 
                 <div
                   onClick={() =>
                     setActiveFilm(isActive ? null : film.title)
                   }
-                 className="group relative h-[225px] w-[150px] cursor-pointer overflow-hidden rounded-xl md:h-[300px] md:w-[200px]"
+                  className="group relative h-[300px] w-[200px] cursor-pointer overflow-hidden rounded-xl"
                 >
 
                   <Image
