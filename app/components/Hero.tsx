@@ -143,7 +143,73 @@ transition={{
         </div>
       
 
-        <div className="hidden md:block space-y-5">
+        <div className="hidden md:flex relative w-[420px] h-[420px] items-center justify-center">
+
+        <motion.div
+  animate={{
+    opacity: [0.15, 0.25, 0.15],
+    scale: [1, 1.05, 1],
+  }}
+  transition={{
+    duration: 8,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="
+    absolute
+    w-[360px]
+    h-[360px]
+    rounded-full
+    bg-gradient-to-br
+    from-sky-500/10
+    via-cyan-400/5
+    to-indigo-500/10
+    blur-[90px]
+  "
+/>
+
+<svg
+  className="absolute inset-0 w-full h-full opacity-30"
+  viewBox="0 0 420 420"
+>
+  <line x1="90" y1="90" x2="150" y2="120" stroke="#94a3b8" />
+  <line x1="150" y1="120" x2="190" y2="70" stroke="#94a3b8" />
+  <line x1="190" y1="70" x2="250" y2="110" stroke="#94a3b8" />
+  <line x1="250" y1="110" x2="300" y2="180" stroke="#94a3b8" />
+
+  <line x1="120" y1="250" x2="170" y2="300" stroke="#94a3b8" />
+  <line x1="170" y1="300" x2="230" y2="260" stroke="#94a3b8" />
+  <line x1="230" y1="260" x2="300" y2="320" stroke="#94a3b8" />
+</svg>
+
+{[
+  [90,90],
+  [150,120],
+  [190,70],
+  [250,110],
+  [300,180],
+  [120,250],
+  [170,300],
+  [230,260],
+  [300,320],
+].map(([x,y], i) => (
+  <motion.div
+    key={i}
+    animate={{
+      opacity:[0.4,1,0.4],
+      scale:[1,1.5,1]
+    }}
+    transition={{
+      duration:2 + i*0.2,
+      repeat:Infinity,
+    }}
+    className="absolute h-2 w-2 rounded-full bg-white shadow-[0_0_10px_white]"
+    style={{
+      left:x,
+      top:y,
+    }}
+  />
+))}
       
         {socialLinks.map((social) => (
          <a
