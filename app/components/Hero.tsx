@@ -55,14 +55,30 @@ export default function Hero() {
           </p>
       
 <div className="relative inline-block">
-  <h1 className="relative mt-6 text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tight text-white">
-    <span className="absolute inset-0 -z-10 blur-xl text-sky-400 opacity-60">
-      Ιχλας
-    </span>
+  {/* Night mist */}
+  <div
+    className="
+      absolute
+      left-1/2
+      top-1/2
+      -translate-x-1/2
+      -translate-y-1/2
+      h-40
+      w-56
+      md:h-64
+      md:w-[420px]
+      rounded-full
+      bg-gradient-to-r
+      from-sky-400/15
+      via-cyan-300/10
+      to-indigo-500/15
+      blur-[100px]
+      -z-10
+    "
+  />
 
-    <span className="relative">
-      Ιχλας
-    </span>
+  <h1 className="mt-6 text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tight text-white transition-all duration-500 hover:scale-105">
+    Ιχλας
   </h1>
 </div>
       
