@@ -14,6 +14,7 @@ export default function Navbar({ active, setActive }: NavbarProps) {
   const [open, setOpen] = useState(false);
 
   return (
+    <>
 <nav className="fixed top-0 z-50 w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur">
   <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-8 sm:py-5">
 
@@ -34,7 +35,7 @@ export default function Navbar({ active, setActive }: NavbarProps) {
   {open ? <HiOutlineX /> : <HiOutlineMenu />}
 </button>
 
-    <div className="flex items-center overflow-x-auto text-zinc-400">
+    <div className="hidden md:flex items-center text-zinc-400">
 
 <a
   href="#home"
@@ -164,5 +165,42 @@ export default function Navbar({ active, setActive }: NavbarProps) {
 
   </div>
 </nav>
+
+<AnimatePresence>
+  {open && (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      className="fixed top-[72px] left-0 w-full bg-zinc-950 border-b border-zinc-800 md:hidden z-40"
+    >
+      <div className="flex flex-col">
+
+        {[
+          ["Home", "home"],
+          ["Profile", "profile"],
+          ["Social Media", "links"],
+          ["Films", "films"],
+          ["Bookshelf", "bookshelf"],
+          ["Greek", "greek"],
+        ].map(([label, id]) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            onClick={() => {
+              setActive(id);
+              setOpen(false);
+            }}
+            className="border-b border-zinc-800 px-6 py-5 text-zinc-300 hover:bg-zinc-900"
+          >
+            {label}
+          </a>
+        ))}
+
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+</> 
   );
 }
