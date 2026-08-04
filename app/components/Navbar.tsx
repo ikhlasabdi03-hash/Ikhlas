@@ -1,6 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 
 type NavbarProps = {
   active: string;
@@ -8,6 +10,9 @@ type NavbarProps = {
 };
 
 export default function Navbar({ active, setActive }: NavbarProps) {
+
+  const [open, setOpen] = useState(false);
+
   return (
 <nav className="fixed top-0 z-50 w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur">
   <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-8 sm:py-5">
@@ -21,6 +26,13 @@ export default function Navbar({ active, setActive }: NavbarProps) {
     Ιχλας
   </a>
 </h1>
+
+<button
+  onClick={() => setOpen(!open)}
+  className="md:hidden text-3xl text-zinc-300"
+>
+  {open ? <HiOutlineX /> : <HiOutlineMenu />}
+</button>
 
     <div className="flex items-center overflow-x-auto text-zinc-400">
 
