@@ -38,9 +38,9 @@ export default function Profile() {
   </div>
 </div>
 
-  <h3 className="mt-6 text-3xl font-bold">
-    Ikhlas Abdi Bangsa El Kamal
-  </h3>
+<h3 className="mt-6 max-w-full px-4 text-center text-2xl font-bold sm:text-3xl">
+  Ikhlas Abdi Bangsa El Kamal
+</h3>
 
   <p className="mt-2 text-zinc-300">
     Medical Student
