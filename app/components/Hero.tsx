@@ -60,13 +60,13 @@ export default function Hero() {
     className="
       absolute
       left-1/2
-      top-1/2
+      top-[45%]
       -translate-x-1/2
       -translate-y-1/2
       h-40
       w-56
-      md:h-64
-      md:w-[420px]
+      md:h-80
+      md:w-[520px]
       rounded-full
       bg-gradient-to-r
       from-sky-400/15
@@ -77,9 +77,17 @@ export default function Hero() {
     "
   />
 
-  <h1 className="mt-6 text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tight text-white transition-all duration-500 hover:scale-105">
+  <motion.h1 
+  whileHover={{
+  scale: 1.03,
+  letterSpacing: "0.04em",
+}}
+transition={{
+  duration: 0.25,
+}}
+  className="mt-6 text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tight text-white transition-all duration-500 hover:scale-105">
     Ιχλας
-  </h1>
+  </motion.h1>
 </div>
       
           <p className="mt-5 text-xl md:text-2xl text-zinc-300">
