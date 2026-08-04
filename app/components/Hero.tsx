@@ -44,8 +44,9 @@ export default function Hero() {
   return (
     <>
        <section
-       id="home"
-       className="mx-auto flex min-h-screen max-w-6xl items-center justify-between px-8">
+  id="home"
+  className="mx-auto flex min-h-screen max-w-6xl flex-col items-start justify-center gap-12 px-6 py-24 md:flex-row md:items-center md:justify-between md:px-8"
+>
       
        <div className="max-w-xl space-y-6">
       
@@ -56,12 +57,12 @@ export default function Hero() {
          <div className="relative inline-block">
   <div className="absolute inset-0 -z-10 rounded-full bg-blue-500/20 blur-3xl" />
 
-  <h1 className="mt-6 text-8xl font-extrabold tracking-tight transition-all duration-500 hover:-translate-y-1 hover:scale-105 hover:tracking-wider">
+  <h1 className="mt-6 text-6xl md:text-8xl font-extrabold tracking-tight transition-all duration-500 hover:-translate-y-1 hover:scale-105 hover:tracking-wider">
     Ιχλας
   </h1>
 </div>
       
-          <p className="mt-5 text-2xl text-zinc-300">
+          <p className="mt-5 text-xl md:text-2xl text-zinc-300">
             Medical Student
           </p>
       
