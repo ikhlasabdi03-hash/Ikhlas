@@ -10,10 +10,10 @@ export default function Profile() {
     <FadeUp>
 <section
   id="profile"
-  className="mx-auto max-w-5xl px-8 py-32"
+  className="mx-auto w-full max-w-5xl px-6 py-32"
 >
 <motion.h2
-  className="mb-12 text-center text-4xl font-bold"
+  className="mb-12 w-full text-center text-4xl font-bold"
   animate={{ y: [0, -8, 0] }}
   transition={{
     duration: 3,
