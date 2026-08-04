@@ -12,6 +12,7 @@ type NavbarProps = {
 const navItems = [
   ["Home", "home"],
   ["Profile", "profile"],
+  ["Currently", "Currently"],
   ["Social Media", "links"],
   ["Films", "films"],
   ["Bookshelf", "bookshelf"],
@@ -44,6 +45,7 @@ export default function Navbar({ active, setActive }: NavbarProps) {
           <div className="ml-auto mr-4 text-sm text-zinc-400 md:hidden">
             {active === "home" && "Home"}
             {active === "profile" && "Profile"}
+            {active === "Currently" && "Currently"}
             {active === "links" && "Social Media"}
             {active === "films" && "Films"}
             {active === "bookshelf" && "Bookshelf"}

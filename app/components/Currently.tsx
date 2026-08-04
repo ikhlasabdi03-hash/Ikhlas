@@ -19,7 +19,7 @@ const currently = [
     action: "View on Goodreads ↗",
   },
   {
-    label: "Watching",
+    label: "Last Watched",
     title: "The Odyssey",
     subtitle: "Christopher Nolan",
     link: "https://boxd.it/9l3uR",
@@ -46,7 +46,7 @@ export default function Currently() {
           Currently
         </motion.h2>
 
-        <div className="mt-16 flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-4">
+        <div className="mt-16 flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-4 md:justify-center">
           {currently.map((item) => (
             <div
               key={item.label}
