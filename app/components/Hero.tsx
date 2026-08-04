@@ -45,19 +45,19 @@ export default function Hero() {
     <>
        <section
   id="home"
-  className="mx-auto flex min-h-screen max-w-6xl flex-col items-start justify-center gap-12 px-6 py-24 md:flex-row md:items-center md:justify-between md:px-8"
+  className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center gap-12 px-6 py-24 md:flex-row md:items-center md:justify-between md:px-8"
 >
       
-       <div className="max-w-xl space-y-6">
+       <div className="max-w-xl space-y-6 text-center md:text-left">
       
           <p className="text-sm uppercase tracking-[0.3em] text-zinc-500">
             Just a little corner of mine.
           </p>
       
          <div className="relative inline-block">
-  <div className="absolute inset-0 -z-10 rounded-full bg-blue-500/20 blur-3xl" />
+  <div className="absolute inset-0 -z-10 rounded-full bg-sky-400/10 blur-3xl" />
 
-  <h1 className="mt-6 text-6xl md:text-8xl font-extrabold tracking-tight transition-all duration-500 hover:-translate-y-1 hover:scale-105 hover:tracking-wider">
+  <h1 className="mt-6 text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tight transition-all duration-500 hover:-translate-y-1 hover:scale-105 hover:tracking-wider">
     Ιχλας
   </h1>
 </div>
@@ -77,7 +77,7 @@ export default function Hero() {
       
       </div>
       
-      <div className="mt-1 space-y-3 text-zinc-400">
+      <div className="mt-1 space-y-3 text-center md:text-left text-zinc-400">
       
         <p>
           📚 Currently Reading:
@@ -91,7 +91,7 @@ export default function Hero() {
       
       </div>
       
-      <div className="mt-10 flex flex-wrap gap-3 text-sm">
+      <div className="mt-10 flex flex-wrap gap-3 text-sm justify-center md:justify-start">
       
         <span className="rounded-full border border-zinc-700 px-4 py-2">
           Medical Student
@@ -117,7 +117,16 @@ export default function Hero() {
       
         </div>
       
-        <div className="space-y-5">
+<div className="pt-8 text-center md:text-left">
+  <a
+    href="#profile"
+    className="inline-block rounded-full border border-zinc-700 px-8 py-4 transition-all duration-300 hover:border-white hover:bg-white hover:text-black"
+  >
+    Explore My World
+  </a>
+</div>
+
+        <div className="hidden md:block space-y-5">
       
         {socialLinks.map((social) => (
          <a
@@ -141,21 +150,11 @@ export default function Hero() {
           </a>
         ))}
       
-        <div className="pt-6">
-    <a
-  href="#profile"
-  className="inline-block cursor-pointer rounded-full border border-zinc-700 px-8 py-4 transition-all duration-300 hover:border-white hover:bg-white hover:text-black"
->
-  Explore My World
-</a>
-        
-
-      </div>
       </div>
       
       </section>
 
-<div className="-mt-28 pb-10 flex justify-center">
+<div className="hidden md:flex -mt-28 pb-10 justify-center">
   <motion.a
     href="#profile"
     animate={{ y: [0, 8, 0] }}

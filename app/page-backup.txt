@@ -274,7 +274,7 @@ export default function Home() {
 
   </div>
 
-  <div className="space-y-5">
+  <div className="hidden md:block space-y-5">
 
   {socialLinks.map((social) => (
    <a
