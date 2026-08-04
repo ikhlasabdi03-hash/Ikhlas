@@ -54,11 +54,15 @@ export default function Hero() {
             Just a little corner of mine.
           </p>
       
-<div className="relative inline-block overflow-visible">
-  <div className="absolute inset-0 scale-150 rounded-full bg-sky-400/25 blur-[90px]" />
+<div className="relative inline-block">
+  <h1 className="relative mt-6 text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tight text-white">
+    <span className="absolute inset-0 -z-10 blur-xl text-sky-400 opacity-60">
+      Ιχλας
+    </span>
 
-  <h1 className="mt-6 text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tight transition-all duration-500 hover:-translate-y-1 hover:scale-105 hover:tracking-wider">
-    Ιχλας
+    <span className="relative">
+      Ιχλας
+    </span>
   </h1>
 </div>
       
