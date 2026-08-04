@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import Hero from "./components/Hero";
 import Profile from "./components/Profile";
+import Currently from "./components/Currently";
 import Social from "./components/Social";
 import Films from "./components/Films";
 import Bookshelf from "./components/Bookshelf";
@@ -58,6 +59,7 @@ export default function Home() {
 
 <Hero />
 <Profile />
+<Currently />
 <Social />
 <Films />
 <Bookshelf />
